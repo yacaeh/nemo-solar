@@ -1,0 +1,43 @@
+{
+  "files": {
+    "app.js": "/static/js/bundle.js",
+    "app.js.map": "/static/js/bundle.js.map",
+    "fonts/AntDesign.ttf": "/./fonts/AntDesign.ttf",
+    "fonts/Entypo.ttf": "/./fonts/Entypo.ttf",
+    "fonts/Feather.ttf": "/./fonts/Feather.ttf",
+    "fonts/FontAwesome.ttf": "/./fonts/FontAwesome.ttf",
+    "fonts/FontAwesome5_Brands.ttf": "/./fonts/FontAwesome5_Brands.ttf",
+    "fonts/FontAwesome5_Solid.ttf": "/./fonts/FontAwesome5_Solid.ttf",
+    "fonts/Fontisto.ttf": "/./fonts/Fontisto.ttf",
+    "fonts/Foundation.ttf": "/./fonts/Foundation.ttf",
+    "fonts/Ionicons.ttf": "/./fonts/Ionicons.ttf",
+    "fonts/MaterialCommunityIcons.ttf": "/./fonts/MaterialCommunityIcons.ttf",
+    "fonts/MaterialIcons.ttf": "/./fonts/MaterialIcons.ttf",
+    "fonts/SimpleLineIcons.ttf": "/./fonts/SimpleLineIcons.ttf",
+    "fonts/Ubuntu_300Light.ttf": "/./fonts/Ubuntu_300Light.ttf",
+    "fonts/Ubuntu_300Light_Italic.ttf": "/./fonts/Ubuntu_300Light_Italic.ttf",
+    "fonts/Ubuntu_400Regular.ttf": "/./fonts/Ubuntu_400Regular.ttf",
+    "fonts/Ubuntu_400Regular_Italic.ttf": "/./fonts/Ubuntu_400Regular_Italic.ttf",
+    "fonts/Ubuntu_500Medium.ttf": "/./fonts/Ubuntu_500Medium.ttf",
+    "fonts/Ubuntu_500Medium_Italic.ttf": "/./fonts/Ubuntu_500Medium_Italic.ttf",
+    "fonts/Ubuntu_700Bold.ttf": "/./fonts/Ubuntu_700Bold.ttf",
+    "fonts/Ubuntu_700Bold_Italic.ttf": "/./fonts/Ubuntu_700Bold_Italic.ttf",
+    "favicon-16.png": "/favicon-16.png",
+    "favicon-32.png": "/favicon-32.png",
+    "favicon.ico": "/favicon.ico",
+    "index.html": "/index.html",
+    "manifest.json": "/manifest.json",
+    "static/media/bell.png": "/static/media/bell.cf04af27.png",
+    "static/media/forget.png": "/static/media/forget.b210f38c.png",
+    "static/media/heart.png": "/static/media/heart.23b5c2c0.png",
+    "static/media/icon.png": "/static/media/icon.ef89f69f.png",
+    "static/media/login.png": "/static/media/login.6d9f9238.png",
+    "static/media/register.png": "/static/media/register.034666df.png",
+    "static/media/rocket.png": "/static/media/rocket.d2f3bf41.png",
+    "static/media/splash.png": "/static/media/splash.894e7fd6.png",
+    "static/media/star.png": "/static/media/star.69c71386.png"
+  },
+  "entrypoints": [
+    "static/js/bundle.js"
+  ]
+}
