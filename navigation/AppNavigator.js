@@ -22,7 +22,7 @@ const firebaseConfig = {
 	apiKey: 'AIzaSyBxreeIXfHQkQoziFMsPkQz5Q64s9DFAKg',
 	authDomain: '',
 	databaseURL: '',
-	projectId: '',
+	projectId: '1234',
 	storageBucket: '',
 	messagingSenderId: '',
 	appId: '',
@@ -68,7 +68,6 @@ const Main = () => {
 
 export default () => {
 	const [isLoading,setIsLoading] = useState(true);
-	console.log("loaded!",isLoading.current);
 	setTimeout(() =>{
 		setIsLoading(false);
 	},1500)

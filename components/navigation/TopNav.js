@@ -5,7 +5,6 @@ import Colors from '../../constants/colors';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function (props) {
-	console.log(props.size);
 	return (
 		<View>
 			<View

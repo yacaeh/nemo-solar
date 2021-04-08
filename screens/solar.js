@@ -1,20 +1,63 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import { StyleSheet, View } from 'react-native';
 import Layout from '../components/global/Layout';
 import Text from '../components/utils/UbuntuFont';
 import Footer from '../components/global/Footer';
 import Item from '../components/global/Item';
+import * as firebase from 'firebase';
 
 export default function ({ navigation }) {
+	const [systems, setSystems] = useState([]);
+	const dbRef = firebase.firestore().collection('nemosystem');
+	const [isLoading, setLoading] = useState(true);
+	const sampleData = [
+		{
+			id: 1,
+			sunvoltage:1376,
+			sunvoltage2:1376,
+			sunvoltage3:'',
+			sunvoltage4:'',
+		},
+		{
+			id: 2,
+			sunvoltage:1376,
+			sunvoltage2:1376,
+			sunvoltage3:'',
+			sunvoltage4:'',
+		},
+	]
 
+	function getSystemList(querySnapshot) {
+		const systemList = [];
+		querySnapshot.forEach((res) => {
+		  const { id, sunvoltage, sunvoltage3,sunvoltag4 } = res.data();
+		  systemList = systemList.concat({
+			id: id,
+			sunvoltage:sunvoltage,
+			sunvoltage2:sunvoltage,
+			sunvoltage3:sunvoltage3,
+			sunvoltage4:sunvoltag4,
+		  });
+		});
+		setSystems(systemList);
+	  }
+		
+	async function listSystems() {
+		await dbRef.onSnapshot(getSystemList).then(()=> setLoading(false));
+	  }
+	
+	  useEffect(() => {
+		//listSystems();	
+		setSystems(sampleData);
+	}, []);	
 
-	const ItemContainer = (props) =>
+	const ItemContainer = (props) => 
 		<View style={{ left:10, width: 400, height:250, flexDirection: 'column', justifyContent: 'flex-start' }}>
 			<Text style={{ fontSize: 30, fontWeight: 'bold' }}>{props.title}</Text>
 			<View style={{ left:10, top:20, width: 380, height:125, flexDirection: 'column', justifyContent: 'flex-start' }}>
-			<Item title="태양광1" content="xxxx V (전앖값)" />
-			<Item title="태양광2" content="xxxx V (전앖값)" />
+			<Item title="태양광1" content={props.system.sunvoltage +" V (전앖값)" || "0 V (전앖값)" }/>
+			<Item title="태양광2" content={props.system.sunvoltage +" V (전앖값)" || "0 V (전앖값)" }/>
 			<Item title="태양광3" content="" />
 			<Item title="태양광4" content="" />
 			</View>
@@ -29,8 +72,10 @@ export default function ({ navigation }) {
 				}}
 			>
 				{/* This text using ubuntu font */}
-				<ItemContainer title={"1번 시스템"} />
-				<ItemContainer title={"2번 시스템"} />
+				{systems.map((system,index) => {return(
+					<ItemContainer key={index} title={index+1+"번 시스템"} system={system}/>
+					)
+				})}
 			</View>
 			<Footer/>
 		</Layout>

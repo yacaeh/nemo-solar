@@ -29,7 +29,7 @@ export default function ({ navigation }) {
 					<Text style={styles.title} bold>
 					{`\t\t태양광 패널 실시간 전압`}
 					</Text>
-				</TouchableOpacity>				
+				</TouchableOpacity>
 				<Image style={styles.divider} source={require('../assets/divider.png')}/>		
 				<TouchableOpacity
 					onPress={() => {
