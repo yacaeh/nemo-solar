@@ -9,7 +9,6 @@ import Colors from '../constants/colors';
 import Footer from '../components/global/Footer';
 
 export default function ({ navigation }) {
-	const [system, setSystem] = useState(true);
 	return (
 		<Layout navigation={navigation} title="AI Serial Parallel Transform System" size="15">
 			<View
@@ -55,17 +54,6 @@ export default function ({ navigation }) {
 					{'\t\t인버터 이상 모니터링'}
 					</Text>
 				</TouchableOpacity>
-				<Image style={styles.divider} source={require('../assets/divider.png')}/>		
-				<TouchableOpacity
-					style={styles.container}
-				>
-					<Text style={styles.title} bold>
-					{'Voltage Integration :\t\t'}
-					</Text>
-					{ system ? <Image style={styles.image} source={require('../assets/on.jpg')}/>: 
-					<Image style={styles.image} source={require('../assets/off.jpg')}/>}
-				</TouchableOpacity>
-
 			</View>
 			<Footer/>
 		</Layout>
