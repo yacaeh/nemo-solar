@@ -18,6 +18,7 @@ import {
 } from '@expo-google-fonts/ubuntu';
 import AppNavigator from './navigation/AppNavigator';
 import { AuthProvider } from './provider/AuthProvider';
+import * as SplashScreen from 'expo-splash-screen';
 
 export default function App(props) {
 	const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -62,6 +63,8 @@ async function loadResourcesAsync() {
 			Ubuntu_700Bold_Italic,
 		}),
 	]);
+	//await SplashScreen.hideAsync();
+
 }
 
 function handleLoadingError(error) {
@@ -71,6 +74,7 @@ function handleLoadingError(error) {
 }
 
 function handleFinishLoading(setLoadingComplete) {
+	
 	setLoadingComplete(true);
 }
 const styles = StyleSheet.create({

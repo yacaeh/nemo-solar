@@ -4,7 +4,8 @@ import { StyleSheet, View, Image } from 'react-native';
 import Layout from '../components/global/Layout';
 import Text from '../components/utils/UbuntuFont';
 import Footer from '../components/global/Footer';
-import * as firebase from 'firebase';
+import firebase from 'firebase';
+import 'firebase/firestore';
 
 export default function ({ navigation }) {
 	const [systems, setSystems] = useState([]);
