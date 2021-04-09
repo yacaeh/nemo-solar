@@ -19,13 +19,13 @@ import ForgetPassword from '../screens/auth/ForgetPassword';
 import Loading from '../screens/utils/Loading';
 
 const firebaseConfig = {
-	apiKey: 'AIzaSyBxreeIXfHQkQoziFMsPkQz5Q64s9DFAKg',
-	authDomain: '',
-	databaseURL: '',
-	projectId: '1234',
-	storageBucket: '',
-	messagingSenderId: '',
-	appId: '',
+    apiKey: "AIzaSyBxreeIXfHQkQoziFMsPkQz5Q64s9DFAKg",
+    authDomain: "nemoaspts.firebaseapp.com",
+    projectId: "nemoaspts",
+    storageBucket: "nemoaspts.appspot.com",
+    messagingSenderId: "451401112813",
+    appId: "1:451401112813:web:4b6d2b15fb0834a535c0e4",
+    measurementId: "G-2N7PWT63Y6"
 };
 if (firebase.apps.length === 0) {
 	firebase.initializeApp(firebaseConfig);
