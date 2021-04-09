@@ -24,30 +24,38 @@ export default function ({ navigation }) {
 		},
 	]
 	function getSystemList(querySnapshot) {
-		const systemList = [];
+		let systemList = [];
 		querySnapshot.forEach((res) => {
 		  const { id, time, MPPtime } = res.data();
 		  systemList = systemList.concat({
 			id: id,
-			time:time,
+			time:time ? time.toDate().toLocaleDateString("ko-KR",{
+				year: 'numeric',
+				month: '2-digit',
+				day:'2-digit',
+				hour:'2-digit',
+				minute:'2-digit',
+			}):'',
 			MPPtime:MPPtime,
 		  });
 		});
+		console.log(systemList);
+		setLoading(false);
 		setSystems(systemList);
 	  }
 		
 	async function listSystems() {
-		await dbRef.onSnapshot(getSystemList).then(()=> setLoading(false));
+		await dbRef.onSnapshot(getSystemList);
 	  }
 	
 	  useEffect(() => {
-		//listSystems();	
-		setSystems(sampleData);
+		listSystems();	
+		//setSystems(sampleData);
 	  }, []);
-	  function secToHms(d) {
+	  function mToHm(d) {
 		d = Number(d);
-		var h = Math.floor(d / 3600);
-		var m = Math.floor(d % 3600 / 60);
+		var h = Math.floor(d / 60);
+		var m = Math.floor(d % 60);
 	  
 		var hDisplay = h > 0 ? (h +"시간") : "";
 		var mDisplay = m > 0 ? (m +"분") : "";
@@ -58,12 +66,19 @@ export default function ({ navigation }) {
 		<View style={{ left:10, width: 400, height:250, flexDirection: 'column', justifyContent: 'flex-start' }}>
 			<Text style={{ fontSize: 30, fontWeight: 'bold' }}>{props.title}</Text>
 			<View style={{ left:10, top:20, width: 380, height:80, flexDirection: 'column', justifyContent: 'flex-start' }}>
-			<Item title="Date" content={props.system.time}/>
+			<Item title="Date" content={props.system.time || "데이터 없음"}/>
 			<Item title="MPP Range" content="200 V ~ 400 V" />
-			<Item title="MPP Time" content={secToHms(props.system.MPPtime*10)} />
+			<Item title="MPP Time" content={mToHm(props.system.MPPtime*10) || "데이터 없음"} />
 			</View>
 		</View>
 		;
+	ItemContainer.defaultProps = {
+		title: "N번 시스템",
+		system:{
+			time:'데이터 없음',
+			MPPtime:0,
+		}
+	};
 
 	return (
 		<Layout navigation={navigation} title="발전시간 (MPPT)" withBack size="25">

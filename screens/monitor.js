@@ -26,7 +26,7 @@ export default function ({ navigation }) {
 	]
 
 	function getSystemList(querySnapshot) {
-		const systemList = [];
+		let systemList = [];
 		querySnapshot.forEach((res) => {
 			const { id, invertervoltage1, invertervoltage2,invertervoltage3 } = res.data();
 			systemList = systemList.concat({
@@ -36,16 +36,17 @@ export default function ({ navigation }) {
 			  invertervoltage3:invertervoltage3,
 			});
 		});
+		setLoading(false);
 		setSystems(systemList);
 	  }
 		
 	async function listSystems() {
-		await dbRef.onSnapshot(getSystemList).then(()=> setLoading(false));
+		await dbRef.onSnapshot(getSystemList);
 	  }
 	
 	  useEffect(() => {
-		//listSystems();	
-		setSystems(sampleData);
+		listSystems();	
+		//setSystems(sampleData);
 	  }, []);
 
 	const Item = (props) => 
@@ -67,7 +68,15 @@ export default function ({ navigation }) {
 			</View>
 		</View>
 		;
-
+	ItemContainer.defaultProps = {
+		title: "N번 시스템",
+		system:{
+			invertervoltage1:false,
+			invertervoltage2:false,
+			invertervoltage3:false,
+		}
+	};
+	
 	return (
 		<Layout navigation={navigation} title="인버터 이상상황 검지" withBack size="25">
 			<View
