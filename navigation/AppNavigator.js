@@ -11,11 +11,6 @@ import Mppt from '../screens/mppt';
 import Solar from '../screens/solar';
 import Monitor from '../screens/monitor';
 
-// Auth screens
-import Login from '../screens/auth/Login';
-import Register from '../screens/auth/Register';
-import ForgetPassword from '../screens/auth/ForgetPassword';
-
 import Loading from '../screens/utils/Loading';
 
 const firebaseConfig = {
@@ -30,23 +25,6 @@ const firebaseConfig = {
 if (firebase.apps.length === 0) {
 	firebase.initializeApp(firebaseConfig);
 }
-
-const AuthStack = createStackNavigator();
-
-const Auth = () => {
-	return (
-		<AuthStack.Navigator
-			screenOptions={{
-				headerMode: 'none',
-				headerShown: false,
-			}}
-		>
-			<AuthStack.Screen name="Login" component={Login} />
-			<AuthStack.Screen name="Register" component={Register} />
-			<AuthStack.Screen name="ForgetPassword" component={ForgetPassword} />
-		</AuthStack.Navigator>
-	);
-};
 
 const MainStack = createStackNavigator();
 
@@ -74,7 +52,6 @@ export default () => {
 	return (
 		<NavigationContainer>
 			{isLoading == true && <Loading />}
-			{/* {user == false && <Auth />} */}
 			{isLoading == false && <Main />}
 		</NavigationContainer>
 	);

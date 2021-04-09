@@ -50,9 +50,6 @@ async function loadResourcesAsync() {
 		Asset.loadAsync([
 			require('./assets/icon.png'),
 			require('./assets/splash.png'),
-			require('./assets/login.png'),
-			require('./assets/register.png'),
-			require('./assets/forget.png'),
 		]),
 		Font.loadAsync({
 			Ubuntu_300Light,
