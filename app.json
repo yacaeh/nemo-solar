@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "NEMO AI Solar System",
-    "slug": "NEMO AI Solar System",
+    "slug": "NEMOAISolarSystem",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
